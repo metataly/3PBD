@@ -8,14 +8,14 @@ WHERE Email = 'joao@email.com';
 -- Selecionar todos os quartos
 SELECT * FROM Quarto;
 
--- Selecionar quartos com banheiro e capacidade 4 (regra: filtro no momento da reserva)
+-- Selecionar quartos com banheiro e capacidade 4
 SELECT * FROM Quarto
 WHERE Banheiro = 'Sim' AND Qtd_Vagas = 4;
 
 -- Selecionar todas as vagas
 SELECT * FROM Vaga;
 
--- Selecionar todas as vagas de um quarto específico (ex: Quarto 1)
+-- Selecionar todas as vagas de um quarto específico
 SELECT * FROM Vaga
 WHERE Id_Quarto = 1;
 
