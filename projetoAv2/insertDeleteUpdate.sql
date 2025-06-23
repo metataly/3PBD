@@ -41,7 +41,7 @@ SET Telefone = '11977777777', Tipo_Cliente = 'Turista'
 WHERE Id_Cliente = 1;
 
 UPDATE Quarto
-SET Qtd_Vagas = 6, Banheiro = 'Não'
+SET Qtd_Vagas = 8, Banheiro = 'Não'
 WHERE Id_Quarto = 1;
 
 UPDATE Vaga
