@@ -9,7 +9,7 @@ CREATE TABLE Cliente (
 CREATE TABLE Quarto (
     Id_Quarto INT PRIMARY KEY AUTO_INCREMENT,
     Numero INT NOT NULL,
-    Qtd_Vagas INT NOT NULL NULL CHECK (capacidade IN (4, 8, 12)),
+    Qtd_Vagas INT NOT NULL CHECK (Qtd_Vagas IN (4, 8, 12)),
     Banheiro ENUM('Sim', 'Não') NOT NULL
 );
 
@@ -38,7 +38,7 @@ CREATE TABLE Pagamento (
     Id_Pagamento INT PRIMARY KEY AUTO_INCREMENT,
     Id_Reserva INT UNIQUE NOT NULL,
     Data_pag DATE NOT NULL,
-    Forma_pag ENUM('Cartao_Credito') NOT NULL,
+    Forma_pag VARCHAR(20) NOT NULL DEFAULT 'Cartao_Credito',
     Status_pag ENUM('Pago', 'Pendente', 'Cancelado') NOT NULL,
     FOREIGN KEY (Id_Reserva) REFERENCES Reserva(Id_Reserva)
 );
