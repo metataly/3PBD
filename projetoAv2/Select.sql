@@ -1,21 +1,15 @@
--- Selecionar todos os clientes
 SELECT * FROM Cliente;
 
--- Selecionar um cliente específico pelo email
 SELECT * FROM Cliente
 WHERE Email = 'joao@email.com';
 
--- Selecionar todos os quartos
 SELECT * FROM Quarto;
 
--- Selecionar quartos com banheiro e capacidade 4
 SELECT * FROM Quarto
 WHERE Banheiro = 'Sim' AND Qtd_Vagas = 4;
 
--- Selecionar todas as vagas
 SELECT * FROM Vaga;
 
--- Selecionar todas as vagas de um quarto específico
 SELECT * FROM Vaga
 WHERE Id_Quarto = 1;
 
@@ -23,28 +17,23 @@ SELECT * FROM Vaga
 WHERE Tipo_Cama = 'Beliche_Inferior' AND Sol = 'Sol_Manha'
 LIMIT 1;
 
--- Selecionar todas as reservas
 SELECT * FROM Reserva;
 
--- Selecionar uma reserva específica com detalhes
 SELECT R.*, C.Nome, C.Email
 FROM Reserva R
 JOIN Cliente C ON R.Id_Cliente = C.Id_Cliente
 WHERE R.Id_Reserva = 1;
 
--- Selecionar todas as reservas de um cliente
 SELECT R.*
 FROM Reserva R
 WHERE R.Id_Cliente = 1 AND R.Status = 'Ativa';
 
--- Selecionar todos os pagamentos
 SELECT * FROM Pagamento;
 
 SELECT P.*
 FROM Pagamento P
 WHERE P.Id_Reserva = 1;
 
--- Selecionar todas as vagas de uma reserva
 SELECT V.*, Q.Numero AS Numero_Quarto
 FROM Reserva_Vaga RV
 JOIN Vaga V ON RV.Id_Vaga = V.Id_Vaga
