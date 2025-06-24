@@ -19,7 +19,6 @@ SELECT * FROM Vaga;
 SELECT * FROM Vaga
 WHERE Id_Quarto = 1;
 
--- Selecionar uma vaga específica com critérios de conforto
 SELECT * FROM Vaga
 WHERE Tipo_Cama = 'Beliche_Inferior' AND Sol = 'Sol_Manha'
 LIMIT 1;
@@ -27,13 +26,13 @@ LIMIT 1;
 -- Selecionar todas as reservas
 SELECT * FROM Reserva;
 
--- Selecionar uma reserva específica com detalhes do cliente
+-- Selecionar uma reserva específica com detalhes
 SELECT R.*, C.Nome, C.Email
 FROM Reserva R
 JOIN Cliente C ON R.Id_Cliente = C.Id_Cliente
 WHERE R.Id_Reserva = 1;
 
--- Selecionar todas as reservas ativas de um cliente
+-- Selecionar todas as reservas de um cliente
 SELECT R.*
 FROM Reserva R
 WHERE R.Id_Cliente = 1 AND R.Status = 'Ativa';
@@ -41,7 +40,6 @@ WHERE R.Id_Cliente = 1 AND R.Status = 'Ativa';
 -- Selecionar todos os pagamentos
 SELECT * FROM Pagamento;
 
--- Selecionar pagamento da reserva 1 com status
 SELECT P.*
 FROM Pagamento P
 WHERE P.Id_Reserva = 1;
@@ -53,7 +51,6 @@ JOIN Vaga V ON RV.Id_Vaga = V.Id_Vaga
 JOIN Quarto Q ON V.Id_Quarto = Q.Id_Quarto
 WHERE RV.Id_Reserva = 1;
 
--- Selecionar todas as reservas feitas para uma determinada vaga
 SELECT R.*, C.Nome AS Cliente
 FROM Reserva R
 JOIN Reserva_Vaga RV ON R.Id_Reserva = RV.Id_Reserva
